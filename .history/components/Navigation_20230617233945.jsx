@@ -30,34 +30,13 @@ const Navigation = (props) => {
 		return positions
 	}, [radius, numElements])
 
-	const handleChildClick = (index) => {
-		setClickedStates((prevClickedStates) =>
-			prevClickedStates.map((state, i) => (i === index ? !state : state))
-		)
-
-		function triggerExitState(idx, prevState) {
-			setExitStates((prevExitStates) => {
-				let newExitStates = [...prevExitStates] // copy the array
-				newExitStates[idx] = !newExitStates[idx] // toggle the state at index
-				return newExitStates // return the new array
-			})
-
-			// calculate the next index with wrap around
-			let nextIdx = idx + 1 === prevState.length ? 0 : idx + 1
-
-			if (nextIdx !== index) {
-				// prevent infinite loop
-				setTimeout(() => triggerExitState(nextIdx, prevState), 350) // call next one after 2 seconds
-			}
-		}
-
-		// start triggering from the next index
-		setExitStates((prevExitStates) => {
-			let nextIndex = index + 1 === prevExitStates.length ? 0 : index + 1
-			triggerExitState(nextIndex, prevExitStates)
-			return prevExitStates
-		})
-	}
+	// const handleChildClick = (index) => {
+	// 	setClickedStates((prevClickedStates) =>
+	// 		prevClickedStates.map((state, i) => {
+	// 			return i === index ? !state : state
+	// 			return state
+	// 		})
+	// 	)
 
 	// 	/*------------------------------
 	// 	Block

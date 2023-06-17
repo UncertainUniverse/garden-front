@@ -59,6 +59,14 @@ const Navigation = (props) => {
 		})
 	}
 
+	// const handleChildClick = (index) => {
+	// 	setClickedStates((prevClickedStates) =>
+	// 		prevClickedStates.map((state, i) => {
+	// 			return i === index ? !state : state
+	// 			return state
+	// 		})
+	// 	)
+
 	// 	/*------------------------------
 	// 	Block
 	// 	------------------------------*/

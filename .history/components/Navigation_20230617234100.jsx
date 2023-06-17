@@ -47,7 +47,7 @@ const Navigation = (props) => {
 
 			if (nextIdx !== index) {
 				// prevent infinite loop
-				setTimeout(() => triggerExitState(nextIdx, prevState), 350) // call next one after 2 seconds
+				setTimeout(() => triggerExitState(nextIdx, prevState), 500) // call next one after 2 seconds
 			}
 		}
 
@@ -58,6 +58,14 @@ const Navigation = (props) => {
 			return prevExitStates
 		})
 	}
+
+	// const handleChildClick = (index) => {
+	// 	setClickedStates((prevClickedStates) =>
+	// 		prevClickedStates.map((state, i) => {
+	// 			return i === index ? !state : state
+	// 			return state
+	// 		})
+	// 	)
 
 	// 	/*------------------------------
 	// 	Block

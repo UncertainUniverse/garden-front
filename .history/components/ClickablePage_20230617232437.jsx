@@ -63,12 +63,12 @@ const ClickablePage = ({
 				ease: 'sine.inOut',
 				delay: 1,
 			})
-			gsap.to(test.current, {
-				opacity: 0,
-				duration: 1.5,
-				ease: 'sine.inOut',
-				delay: 1,
-			})
+			// gsap.to(test.current, {
+			// 	opacity: 0,
+			// 	duration: 1.5,
+			// 	ease: 'sine.inOut',
+			// 	delay: 1,
+			// })
 		}
 	}, [clicked, exited])
 

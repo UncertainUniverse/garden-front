@@ -68,6 +68,7 @@ const ClickablePage = ({
 				duration: 1.5,
 				ease: 'sine.inOut',
 				delay: 1,
+				// delay: indexPos * 0.5,
 			})
 		}
 	}, [clicked, exited])
