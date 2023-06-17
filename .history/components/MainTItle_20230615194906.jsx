@@ -1,0 +1,24 @@
+import Title from './Title'
+import { forwardRef } from 'react'
+
+const MainTitle = forwardRef((props, ref) => {
+	return (
+		<>
+			<group>
+				<Title
+					text={'Uncertain'}
+					position={[0, 0.15, 0]}
+					scale={[0.35, 0.35, 0.35]}
+				/>
+				<Title
+					text={'Universe'}
+					position={[0, -0.25, 0]}
+					scale={[0.35, 0.35, 0.35]}
+				/>
+			</group>
+		</>
+	)
+})
+
+MainTitle.displayName = 'MainTitle'
+export default MainTitle
