@@ -59,60 +59,6 @@ const Navigation = (props) => {
 		})
 	}
 
-	// 	/*------------------------------
-	// 	Block
-	// 	------------------------------*/
-	// 	function triggerExitState(idx) {
-	// 		setExitStates((prevExitStates) => {
-	// 		  let newExitStates = [...prevExitStates]; // copy the array
-	// 		  newExitStates[idx] = !newExitStates[idx]; // toggle the state at index
-	// 		  return newExitStates; // return the new array
-	// 		});
-
-	// 		// calculate the next index with wrap around
-	// 		let nextIdx = idx + 1 === prevExitStates.length ? 0 : idx + 1;
-
-	// 		if (nextIdx !== index) { // prevent infinite loop
-	// 		  setTimeout(() => triggerExitState(nextIdx), 2000); // call next one after 2 seconds
-	// 		}
-	// 	  }
-
-	// 	  // start triggering from the next index
-	// 	  triggerExitState(index + 1 === prevExitStates.length ? 0 : index + 1);
-	// 	/*------------------------------
-	// 	Block
-	// 	------------------------------*/
-	// 	// setExitStates((prevExitStates) => {
-	// 		// for (let i = index; i < prevExitStates.length; i++) {
-	// 		// 	if (i == index) {
-	// 		// 		prevExitStates[i] = prevExitStates[i]
-	// 		// 	}
-	// 		// 	if (i !== index) {
-	// 		// 		prevExitStates[i] = !prevExitStates[i]
-	// 		// 	}
-	// 		// 	if (i == prevExitStates.length - 1) {
-	// 		// 		i = -1
-	// 		// 	}
-	// 		// 	if (i == index - 1) {
-	// 		// 		break
-	// 		// 	}
-	// 		// }
-	// 		// return prevExitStates
-	// 		// const updatedExitStates = [...prevExitStates] // Create a copy of the exit states array
-	// 		// updatedExitStates[index] = !updatedExitStates[index] // Toggle the exit state for the clicked index
-	// 		// return updatedExitStates
-	// 		// return prevExitStates
-	// 		// const afterIndex = prevExitStates.slice(index + 1)
-	// 		// const beforeIndex = prevExitStates.slice(0, index + 1)
-	// 		// const reorderedArray = afterIndex.concat(beforeIndex)
-	// 		// prevExitStates.map((state, i) => {
-	// 		// 	return i !== index ? !state : state
-	// 		// })
-	// 		// return reorderedArray.map((state, i) =>
-	// 		// i !== index ? !state : state
-	// 		// )
-	// 	})
-	// }
 	return (
 		<>
 			{order.map((originalIndex, i) => {
