@@ -1,7 +1,6 @@
 import React from 'react'
 import Navigation from './Navigation'
 import PointCloud from './PointCloud'
-
 const arrayNav = [
 	{ Evolution: 'Evolution' },
 	{ FirstPrinciples: 'First Principles' },
@@ -10,7 +9,7 @@ const arrayNav = [
 	{ Spacetime: 'Spacetime' },
 ]
 
-const Page2 = () => {
+const Page2 = (props) => {
 	return (
 		<>
 			<PointCloud
@@ -27,7 +26,12 @@ const Page2 = () => {
 				opacity={0.0}
 				center={[0, 0, 0]}
 			/>
-			<Navigation radius={1.75} navData={arrayNav} nodeCount={5} />
+			<Navigation
+				radius={1.75}
+				navData={arrayNav}
+				mainText={props.mainText}
+				nodeCount={5}
+			/>
 		</>
 	)
 }

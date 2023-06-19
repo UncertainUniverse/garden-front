@@ -29,7 +29,7 @@ export default function Evolution() {
 			exit='out'
 		>
 			<Layout>
-				<Page2 />
+				<Page2 mainText={'Evolution'} />
 			</Layout>
 		</motion.div>
 	)

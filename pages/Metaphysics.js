@@ -29,7 +29,7 @@ export default function Metaphysics() {
 			exit='out'
 		>
 			<Layout>
-				<Page2 />
+				<Page2 mainText={'Metaphysics'} />
 			</Layout>
 		</motion.div>
 	)

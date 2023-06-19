@@ -29,7 +29,7 @@ export default function Society() {
 			exit='out'
 		>
 			<Layout>
-				<Page2 />
+				<Page2 mainText={'Society'} />
 			</Layout>
 		</motion.div>
 	)

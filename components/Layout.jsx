@@ -6,7 +6,8 @@ import { useRef } from 'react'
 import { useThree, useFrame } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
 import styles from '@/styles/Home.module.css'
-
+import { Environment } from '@react-three/drei'
+import { EffectComposer, Bloom } from '@react-three/postprocessing'
 extend({ OrbitControls })
 
 function Controls() {
@@ -38,7 +39,22 @@ export default function Layout({ children }) {
 				onCreated={({ gl }) => setCanvas(gl)}
 			>
 				<Stats />
-				{/* <Controls /> */}
+				<pointLight position={[0, 5, 0]} intensity={1} color='#fff' />
+				<directionalLight
+					position={[5, 5, 0]}
+					intensity={1}
+					color='#fff'
+				/>
+
+				<EffectComposer>
+					<Bloom
+						luminanceThreshold={1}
+						intensity={10}
+						levels={9}
+						mipmapBlur
+					/>
+				</EffectComposer>
+				<Environment files='https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/industrial_workshop_foundry_1k.hdr' />
 				{children}
 			</Canvas>
 		</div>

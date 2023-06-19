@@ -29,7 +29,7 @@ export default function FirstPrinciples() {
 			exit='out'
 		>
 			<Layout>
-				<Page2 />
+				<Page2 mainText={'First Principles'} />
 			</Layout>
 		</motion.div>
 	)

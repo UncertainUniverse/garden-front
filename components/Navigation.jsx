@@ -1,10 +1,15 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useRef } from 'react'
 import ClickablePage from './ClickablePage'
-import { Html } from '@react-three/drei'
+import { Caustics, Decal, MeshTransmissionMaterial } from '@react-three/drei'
+import Title from './Title'
+import GlassSphere from './GlassSphere'
+import { gsap } from 'gsap'
 const Navigation = (props) => {
 	const radius = props.radius
 	const dummyAvailableNodes = 8
 	const numElements = props.navData.length
+	const glass = useRef()
+	const [glassExit, setGlassExit] = useState(false)
 	const [order, setOrder] = useState(
 		Array.from({ length: numElements }, (_, i) => i)
 	)
@@ -30,6 +35,7 @@ const Navigation = (props) => {
 	}, [radius, numElements])
 
 	const handleChildClick = (index) => {
+		setGlassExit(true)
 		setClickedStates((prevClickedStates) =>
 			prevClickedStates.map((state, i) => (i === index ? !state : state))
 		)
@@ -60,6 +66,16 @@ const Navigation = (props) => {
 
 	return (
 		<>
+			<Caustics>
+				<GlassSphere exit={glassExit} scale={[0.25, 0.25, 0.25]} />
+			</Caustics>
+			{props.mainText && (
+				<Title
+					text={props.mainText}
+					scale={[0.15, 0.15, 0.15]}
+					position={[0, 0, 1]}
+				/>
+			)}
 			{order.map((originalIndex, i) => {
 				const position = positions[originalIndex]
 				return (

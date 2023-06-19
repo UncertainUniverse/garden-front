@@ -103,11 +103,7 @@ const Page1 = forwardRef((props, ref) => {
 				<planeGeometry args={[10, 10, 10, 10]} />
 				<meshBasicMaterial visible={false} />
 			</mesh>
-			<DebugSphere
-				pos={pointer}
-				size={[0.06, 32, 16]}
-				rotation={[Math.PI / 2, 0, 0]}
-			/>
+
 			<LandingMiddle ref={middleEarth} />
 			<Meteor ref={meteorEarth} />
 			<MainTitle ref={mainTitle} />
@@ -120,7 +116,7 @@ const Page1 = forwardRef((props, ref) => {
 					maxRadius={1.5}
 					pointer={pointer}
 					theatre={false}
-					color={'#f7b373'}
+					color={'#ff8c21'}
 					rotation={[Math.PI / 2, 0, 0]}
 					spread={1.0}
 					size={1.0}
@@ -133,7 +129,7 @@ const Page1 = forwardRef((props, ref) => {
 					indexPage={true}
 					minRadius={0.85}
 					maxRadius={1.35}
-					color={'#88b3ce'}
+					color={'#3190cb'}
 					theatre={false}
 					spread={1.0}
 					size={0.5}
@@ -143,21 +139,6 @@ const Page1 = forwardRef((props, ref) => {
 					center={[0, 0, 0]}
 				/>
 			</group>
-			{/* <PointCloud
-				ref={pRef3}
-				position={[0, 0, 3]}
-				indexPage={true}
-				minRadius={2}
-				maxRadius={2}
-				color={'#fff'}
-				theatre={false}
-				spread={0.0}
-				size={0.1}
-				rotation={[Math.PI / 2, 0, 0]}
-				count={10000}
-				opacity={0.0}
-				center={[0, 0, 0]}
-			/> */}
 		</>
 	)
 })

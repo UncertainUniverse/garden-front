@@ -29,7 +29,7 @@ export default function Spacetime() {
 			exit='out'
 		>
 			<Layout>
-				<Page2 />
+				<Page2 mainText={'Spacetime'} />
 			</Layout>
 		</motion.div>
 	)
