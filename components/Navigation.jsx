@@ -8,8 +8,10 @@ const Navigation = (props) => {
 	const radius = props.radius
 	const dummyAvailableNodes = 8
 	const numElements = props.navData.length
-	const glass = useRef()
+	const text = useRef()
 	const [glassExit, setGlassExit] = useState(false)
+	const navLink = Object.keys(props.navData)
+	// const navTitle = props.navData[`${navLink[0]}`]
 	const [order, setOrder] = useState(
 		Array.from({ length: numElements }, (_, i) => i)
 	)
@@ -35,6 +37,11 @@ const Navigation = (props) => {
 	}, [radius, numElements])
 
 	const handleChildClick = (index) => {
+		const c = Object.keys(props.navData[index])
+		console.log(c[0])
+		const cTitle = props.navData[index][c[0]]
+		// console.log(c)
+		text.current.text = cTitle
 		setGlassExit(true)
 		setClickedStates((prevClickedStates) =>
 			prevClickedStates.map((state, i) => (i === index ? !state : state))
@@ -71,6 +78,7 @@ const Navigation = (props) => {
 			</Caustics>
 			{props.mainText && (
 				<Title
+					ref={text}
 					text={props.mainText}
 					scale={[0.15, 0.15, 0.15]}
 					position={[0, 0, 1]}

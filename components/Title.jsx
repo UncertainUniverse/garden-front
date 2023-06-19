@@ -3,6 +3,7 @@ import { forwardRef } from 'react'
 const Title = forwardRef((props, ref) => {
 	return (
 		<Text
+			ref={ref}
 			font={'/static/fonts/bluunext-bold-webfont.woff'}
 			position={props.position}
 			rotation={props.rotation}

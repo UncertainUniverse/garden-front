@@ -42,9 +42,9 @@ const ClickablePage = ({
 			})
 			gsap.to(test.current, {
 				opacity: 0,
-				duration: 1.5,
+				duration: 0.5,
 				ease: 'sine.inOut',
-				delay: 2,
+				// delay: 2,
 			})
 			gsap.to(transit.current.scale, {
 				x: 3.5,
