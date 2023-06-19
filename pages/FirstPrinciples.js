@@ -29,10 +29,7 @@ export default function FirstPrinciples() {
 			exit='out'
 		>
 			<Layout>
-				<mesh>
-					<boxGeometry args={[1, 1]} />
-					<meshBasicMaterial color='blue' />
-				</mesh>
+				<Page2 />
 			</Layout>
 		</motion.div>
 	)

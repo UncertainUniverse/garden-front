@@ -20,7 +20,7 @@ const pageTransition = {
 	},
 }
 
-export default function FirstPrinciples() {
+export default function Metaphysics() {
 	return (
 		<motion.div
 			variants={pageTransition}
@@ -29,10 +29,7 @@ export default function FirstPrinciples() {
 			exit='out'
 		>
 			<Layout>
-				<mesh>
-					<boxGeometry args={[1, 1]} />
-					<meshBasicMaterial color='blue' />
-				</mesh>
+				<Page2 />
 			</Layout>
 		</motion.div>
 	)

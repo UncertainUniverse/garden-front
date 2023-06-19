@@ -4,7 +4,6 @@ import { Html } from '@react-three/drei'
 const Navigation = (props) => {
 	const radius = props.radius
 	const dummyAvailableNodes = 8
-	console.log(props.navData)
 	const numElements = props.navData.length
 	const [order, setOrder] = useState(
 		Array.from({ length: numElements }, (_, i) => i)

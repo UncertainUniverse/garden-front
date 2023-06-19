@@ -1,26 +1,26 @@
-import Page1 from '@/components/Page1'
-import Layout from '@/components/Layout'
 import { motion } from 'framer-motion'
+import Page2 from '@/components/Page2'
+import Layout from '@/components/Layout'
 
 const pageTransition = {
 	out: {
 		opacity: 0,
 		y: 40,
 		transition: {
-			duration: 2.5,
+			duration: 1.75,
 		},
 	},
 	in: {
 		opacity: 1,
 		y: 0,
 		transition: {
-			duration: 3.5,
+			duration: 2.0,
 			delay: 1,
 		},
 	},
 }
 
-export default function Home() {
+export default function Spacetime() {
 	return (
 		<motion.div
 			variants={pageTransition}
@@ -29,7 +29,7 @@ export default function Home() {
 			exit='out'
 		>
 			<Layout>
-				<Page1 />
+				<Page2 />
 			</Layout>
 		</motion.div>
 	)
