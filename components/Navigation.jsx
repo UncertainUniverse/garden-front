@@ -37,11 +37,11 @@ const Navigation = (props) => {
 	}, [radius, numElements])
 
 	const handleChildClick = (index) => {
-		const c = Object.keys(props.navData[index])
-		console.log(c[0])
-		const cTitle = props.navData[index][c[0]]
-		// console.log(c)
-		text.current.text = cTitle
+		if (text.current) {
+			const c = Object.keys(props.navData[index])
+			const cTitle = props.navData[index][c[0]]
+			text.current.text = cTitle
+		}
 		setGlassExit(true)
 		setClickedStates((prevClickedStates) =>
 			prevClickedStates.map((state, i) => (i === index ? !state : state))
