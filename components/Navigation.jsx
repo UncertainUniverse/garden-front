@@ -1,9 +1,8 @@
 import React, { useMemo, useState, useRef } from 'react'
 import ClickablePage from './ClickablePage'
-import { Caustics, Decal, MeshTransmissionMaterial } from '@react-three/drei'
+import { Caustics } from '@react-three/drei'
 import Title from './Title'
 import GlassSphere from './GlassSphere'
-import { gsap } from 'gsap'
 const Navigation = (props) => {
 	const radius = props.radius
 	const dummyAvailableNodes = 8
@@ -38,6 +37,7 @@ const Navigation = (props) => {
 
 	const handleChildClick = (index) => {
 		if (text.current) {
+			console.log(text.current.text)
 			const c = Object.keys(props.navData[index])
 			const cTitle = props.navData[index][c[0]]
 			text.current.text = cTitle
@@ -70,6 +70,7 @@ const Navigation = (props) => {
 			return prevExitStates
 		})
 	}
+	console.log(props.mainText)
 
 	return (
 		<>

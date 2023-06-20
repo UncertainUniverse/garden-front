@@ -23,11 +23,11 @@ const Page2 = (props) => {
 				spread={0.0}
 				size={0.1}
 				rotation={[Math.PI / 2, 0, 0]}
-				count={10000}
+				count={5000}
 				opacity={0.0}
 				center={[0, 0, 0]}
 			/>
-			<Title text={'0'} scale={[0.1, 0.1, 0.1]} />
+			<Title text={'Enter'} scale={[0.08, 0.08, 0.08]} />
 			<Navigation
 				radius={1.75}
 				navData={arrayNav}
