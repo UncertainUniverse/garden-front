@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react'
 import SurroundingNodes from './SurroundingNodes'
 import Meteor from './Meteor'
+import Meteor2 from './Meteor2'
 import { Html } from '@react-three/drei'
 import { gsap } from 'gsap'
 import { useRouter } from 'next/router'
+import { useLoader } from '@react-three/fiber'
+import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import { useFrame } from '@react-three/fiber'
 
 const ClickablePage = ({
 	position,
@@ -14,9 +18,11 @@ const ClickablePage = ({
 	availableNodes,
 	navData,
 }) => {
+	const colorMap = useLoader(TextureLoader, 'assets/textures/mcblu2.png')
 	const m = useRef()
 	const test = useRef()
 	const groupRef = useRef()
+	const middle = useRef()
 	const transit = useRef()
 	const router = useRouter()
 	// const exited = useState(false)
@@ -69,6 +75,12 @@ const ClickablePage = ({
 				ease: 'sine.inOut',
 				delay: 1,
 			})
+			gsap.to(middle.current.material.uniforms.uOpacity, {
+				value: 0,
+				duration: 2.5,
+				ease: 'sine.inOut',
+				delay: 0,
+			})
 		}
 	}, [clicked, exited])
 
@@ -89,6 +101,7 @@ const ClickablePage = ({
 							pointerEvents: 'none',
 							width: '200px',
 							textAlign: 'center',
+							color: 'white',
 						}}
 						center
 						position={[0, 0, 0.55]}
@@ -97,11 +110,12 @@ const ClickablePage = ({
 							{navTitle}
 						</div>
 					</Html>
-					<sphereBufferGeometry args={[0.1, 16, 32]} />
-					<meshBasicMaterial color={'#4751c5'} transparent />
+					<sphereGeometry args={[0.1, 32, 64]} />
+					<meshMatcapMaterial matcap={colorMap} transparent />
 				</mesh>
 			</group>
 			<Meteor ref={transit} />
+			<Meteor2 ref={middle} />
 			<SurroundingNodes
 				hoverState={hovered}
 				position={[position[0], position[1], -0.75]}

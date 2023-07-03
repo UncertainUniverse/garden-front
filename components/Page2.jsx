@@ -27,7 +27,7 @@ const Page2 = (props) => {
 				opacity={0.0}
 				center={[0, 0, 0]}
 			/>
-			<Title text={'0'} scale={[0.1, 0.1, 0.1]} />
+			{/* <Title text={'0'} scale={[0.1, 0.1, 0.1]} /> */}
 			<Navigation
 				radius={1.75}
 				navData={arrayNav}

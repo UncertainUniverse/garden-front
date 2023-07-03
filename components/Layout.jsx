@@ -8,6 +8,7 @@ import { Stats } from '@react-three/drei'
 import styles from '@/styles/Home.module.css'
 import { Environment } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
+import { SoftShadows } from '@react-three/drei'
 extend({ OrbitControls })
 
 function Controls() {
@@ -39,23 +40,26 @@ export default function Layout({ children }) {
 				onCreated={({ gl }) => setCanvas(gl)}
 			>
 				<Stats />
-				<pointLight position={[0, 5, 0]} intensity={1} color='#fff' />
+				{/* <pointLight position={[0, 5, 0]} intensity={1} color='#fff' />
 				<directionalLight
 					position={[5, 5, 0]}
 					intensity={1}
 					color='#fff'
-				/>
+				/> */}
 
 				<EffectComposer>
 					<Bloom
-						luminanceThreshold={1}
+						luminanceThreshold={0.962}
+						// luminanceThreshold={0.9}
 						intensity={10}
 						levels={9}
 						mipmapBlur
 					/>
 				</EffectComposer>
+				{/* <SoftShadows /> */}
 				<Environment files='https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/industrial_workshop_foundry_1k.hdr' />
 				{children}
+				{/* <Controls /> */}
 			</Canvas>
 		</div>
 	)

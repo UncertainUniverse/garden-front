@@ -27,8 +27,9 @@ export function getPositions2(
 		for (let i = 0; i < count; i++) {
 			let theta = Math.random() * 2 * Math.PI
 			let r = lerp(minRadius, maxRadius, Math.random())
+			// let r = lerp(minRadius, maxRadius, 0.0)
 			let x = r * Math.sin(theta) + center[0]
-			let y = (Math.random() - 0.5) * 0.1 + center[1]
+			let y = (Math.random() - 0.5) * 0.07 + center[1]
 			let z = r * Math.cos(theta) + center[2]
 			pos.set([x, y, z], i * 3)
 		}

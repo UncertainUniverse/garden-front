@@ -29,7 +29,7 @@ export default function IntroNav() {
 			exit='out'
 		>
 			<Layout>
-				<Page2 />
+				<Page2 mainText={`Uncertain \n  Universe`} />
 			</Layout>
 		</motion.div>
 	)

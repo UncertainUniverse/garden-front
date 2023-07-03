@@ -73,9 +73,9 @@ const Navigation = (props) => {
 
 	return (
 		<>
-			<Caustics>
+			{/* <Caustics>
 				<GlassSphere exit={glassExit} scale={[0.25, 0.25, 0.25]} />
-			</Caustics>
+			</Caustics> */}
 			{props.mainText && (
 				<Title
 					ref={text}
@@ -87,18 +87,16 @@ const Navigation = (props) => {
 			{order.map((originalIndex, i) => {
 				const position = positions[originalIndex]
 				return (
-					<>
-						<ClickablePage
-							key={originalIndex} // Use originalIndex as key to preserve component identity.
-							navData={props.navData[i]}
-							indexPos={i}
-							position={position}
-							availableNodes={dummyAvailableNodes}
-							onClick={() => handleChildClick(i)}
-							clicked={clickedStates[originalIndex]}
-							exited={exitState[originalIndex]}
-						/>
-					</>
+					<ClickablePage
+						key={originalIndex} // Use originalIndex as key to preserve component identity.
+						navData={props.navData[i]}
+						indexPos={i}
+						position={position}
+						availableNodes={dummyAvailableNodes}
+						onClick={() => handleChildClick(i)}
+						clicked={clickedStates[originalIndex]}
+						exited={exitState[originalIndex]}
+					/>
 				)
 			})}
 		</>
