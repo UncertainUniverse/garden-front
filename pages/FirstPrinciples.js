@@ -5,14 +5,13 @@ import Layout from '@/components/Layout'
 const pageTransition = {
 	out: {
 		opacity: 0,
-		y: 40,
 		transition: {
 			duration: 1.75,
 		},
 	},
 	in: {
 		opacity: 1,
-		y: 0,
+		scale: 1,
 		transition: {
 			duration: 2.0,
 			delay: 1,
@@ -23,6 +22,7 @@ const pageTransition = {
 export default function FirstPrinciples() {
 	return (
 		<motion.div
+			style={{ position: 'relative', transformOrigin: 'center center' }}
 			variants={pageTransition}
 			animate='in'
 			initial='out'

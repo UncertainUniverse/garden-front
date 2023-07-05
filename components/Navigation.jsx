@@ -1,17 +1,19 @@
 import React, { useMemo, useState, useRef } from 'react'
 import ClickablePage from './ClickablePage'
-import { Caustics, Decal, MeshTransmissionMaterial } from '@react-three/drei'
 import Title from './Title'
-import GlassSphere from './GlassSphere'
+import { useThree } from '@react-three/fiber'
 import { gsap } from 'gsap'
+import Meteor2 from './Meteor2'
 const Navigation = (props) => {
 	const radius = props.radius
 	const dummyAvailableNodes = 8
 	const numElements = props.navData.length
 	const text = useRef()
+	const middle = useRef()
 	const [glassExit, setGlassExit] = useState(false)
 	const navLink = Object.keys(props.navData)
 	// const navTitle = props.navData[`${navLink[0]}`]
+	const { camera } = useThree()
 	const [order, setOrder] = useState(
 		Array.from({ length: numElements }, (_, i) => i)
 	)
@@ -37,6 +39,14 @@ const Navigation = (props) => {
 	}, [radius, numElements])
 
 	const handleChildClick = (index) => {
+		//Camera Zoom Transition
+		gsap.to(camera.position, {
+			z: 300,
+			duration: 3.5,
+			delay: 2,
+			ease: 'Power4.easeIn',
+		})
+		//
 		if (text.current) {
 			const c = Object.keys(props.navData[index])
 			const cTitle = props.navData[index][c[0]]
@@ -73,9 +83,6 @@ const Navigation = (props) => {
 
 	return (
 		<>
-			{/* <Caustics>
-				<GlassSphere exit={glassExit} scale={[0.25, 0.25, 0.25]} />
-			</Caustics> */}
 			{props.mainText && (
 				<Title
 					ref={text}
@@ -84,6 +91,8 @@ const Navigation = (props) => {
 					position={[0, 0, 1]}
 				/>
 			)}
+
+			<Meteor2 ref={middle} />
 			{order.map((originalIndex, i) => {
 				const position = positions[originalIndex]
 				return (

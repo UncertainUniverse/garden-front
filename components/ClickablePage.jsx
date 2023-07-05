@@ -25,7 +25,6 @@ const ClickablePage = ({
 	const middle = useRef()
 	const transit = useRef()
 	const router = useRouter()
-	// const exited = useState(false)
 	const [hovered, setHovered] = useState(false)
 	const handleHoverIn = () => {
 		if (!exited && !clicked) {
@@ -50,12 +49,11 @@ const ClickablePage = ({
 				opacity: 0,
 				duration: 0.5,
 				ease: 'sine.inOut',
-				// delay: 2,
 			})
 			gsap.to(transit.current.scale, {
-				x: 3.5,
-				y: 3.5,
-				z: 3.5,
+				x: 0,
+				y: 0,
+				z: 0,
 				ease: 'Power4.easeIn',
 				duration: 1.75,
 				delay: 2,
@@ -74,12 +72,6 @@ const ClickablePage = ({
 				duration: 1.5,
 				ease: 'sine.inOut',
 				delay: 1,
-			})
-			gsap.to(middle.current.material.uniforms.uOpacity, {
-				value: 0,
-				duration: 2.5,
-				ease: 'sine.inOut',
-				delay: 0,
 			})
 		}
 	}, [clicked, exited])
@@ -115,7 +107,6 @@ const ClickablePage = ({
 				</mesh>
 			</group>
 			<Meteor ref={transit} />
-			<Meteor2 ref={middle} />
 			<SurroundingNodes
 				hoverState={hovered}
 				position={[position[0], position[1], -0.75]}
