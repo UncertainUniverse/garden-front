@@ -89,9 +89,10 @@ const Page1 = forwardRef((props, ref) => {
 
 		const handleTouchEnd = (event) => {
 			const deltaY = touchStartY - event.changedTouches[0].clientY
-
+			console.log(deltaY)
 			if (!animRef.current) {
 				if (deltaY >= 75) {
+					console.log('running touch bro')
 					// adjust this value to meet your specific touch sensitivity requirements
 					// Same gsap code here...
 					animRef.current = true
