@@ -2,7 +2,7 @@ import React, { useMemo, useState, useRef } from 'react'
 import ClickablePage from './ClickablePage'
 import { Caustics, Decal, MeshTransmissionMaterial } from '@react-three/drei'
 import Title from './Title'
-import GlassSphere from './GlassSphere'
+import { Circle } from '@react-three/drei'
 import { gsap } from 'gsap'
 const Navigation = (props) => {
 	const radius = props.radius
@@ -73,9 +73,6 @@ const Navigation = (props) => {
 
 	return (
 		<>
-			{/* <Caustics>
-				<GlassSphere exit={glassExit} scale={[0.25, 0.25, 0.25]} />
-			</Caustics> */}
 			{props.mainText && (
 				<Title
 					ref={text}
@@ -84,6 +81,7 @@ const Navigation = (props) => {
 					position={[0, 0, 1]}
 				/>
 			)}
+			<Circle args={[0.35, 64]} material-color={'#FE6900'} />
 			{order.map((originalIndex, i) => {
 				const position = positions[originalIndex]
 				return (
@@ -91,6 +89,7 @@ const Navigation = (props) => {
 						key={originalIndex} // Use originalIndex as key to preserve component identity.
 						navData={props.navData[i]}
 						indexPos={i}
+						numNodes={order.length}
 						position={position}
 						availableNodes={dummyAvailableNodes}
 						onClick={() => handleChildClick(i)}

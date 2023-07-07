@@ -104,7 +104,7 @@ const Page1 = forwardRef((props, ref) => {
 				<meshBasicMaterial visible={false} />
 			</mesh>
 
-			<LandingMiddle ref={middleEarth} />
+			{/* <LandingMiddle ref={middleEarth} /> */}
 			<Meteor ref={meteorEarth} />
 			<MainTitle ref={mainTitle} />
 

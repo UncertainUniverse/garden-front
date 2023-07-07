@@ -1,1 +1,0 @@
-import PointCloud from './PointCloud'

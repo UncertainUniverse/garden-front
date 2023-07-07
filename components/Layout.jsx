@@ -34,8 +34,8 @@ export default function Layout({ children }) {
 				shadows
 				className={styles.canvas}
 				camera={{
-					position: [0, 0, 2.5],
-					fov: 70,
+					position: [0, 0, 4.5],
+					fov: 45,
 				}}
 				onCreated={({ gl }) => setCanvas(gl)}
 			>
@@ -59,7 +59,7 @@ export default function Layout({ children }) {
 				{/* <SoftShadows /> */}
 				<Environment files='https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/industrial_workshop_foundry_1k.hdr' />
 				{children}
-				{/* <Controls /> */}
+				<Controls />
 			</Canvas>
 		</div>
 	)
