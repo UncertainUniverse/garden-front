@@ -59,7 +59,7 @@ export default function Layout({ children }) {
 				{/* <SoftShadows /> */}
 				<Environment files='https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/industrial_workshop_foundry_1k.hdr' />
 				{children}
-				<Controls />
+				{/* <Controls /> */}
 			</Canvas>
 		</div>
 	)
