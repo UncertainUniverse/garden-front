@@ -94,7 +94,50 @@ const Page1 = forwardRef((props, ref) => {
 				if (deltaY >= 75) {
 					console.log('running touch bro')
 					// adjust this value to meet your specific touch sensitivity requirements
-					// Same gsap code here...
+					gsap.to(meteorEarth.current.scale, {
+						x: 3.5,
+						y: 3.5,
+						z: 3.5,
+						ease: 'Power4.easeIn',
+						duration: 1.75,
+						delay: 2.0,
+						onComplete: () => router.push('/IntroNav'),
+					})
+					gsap.to(mainTitle.current.children[0].scale, {
+						x: 0.15,
+						y: 0.15,
+						z: 0.15,
+						ease: 'Power3.easeIn',
+						duration: 2.5,
+					})
+					gsap.to(mainTitle.current.children[1].scale, {
+						x: 0.15,
+						y: 0.15,
+						z: 0.15,
+						ease: 'Power3.easeIn',
+						duration: 2.5,
+					})
+					gsap.to(mainTitle.current.children[0].position, {
+						y: 0.05,
+						ease: 'Power3.easeIn',
+						duration: 2.5,
+					})
+					gsap.to(mainTitle.current.children[1].position, {
+						y: -0.1,
+						ease: 'Power3.easeIn',
+						duration: 2.5,
+					})
+					gsap.to(pRef.current.position, {
+						z: -13,
+						ease: 'Power4.easeIn',
+						duration: 3,
+					})
+					gsap.to(pRef2.current.position, {
+						z: -13,
+						ease: 'Power4.easeIn',
+						duration: 3,
+						onComplete: () => cleanUp(pRef2),
+					})
 					animRef.current = true
 				}
 			}
