@@ -76,20 +76,36 @@ const Page1 = forwardRef((props, ref) => {
 						duration: 3,
 						onComplete: () => cleanUp(pRef2),
 					})
-					// gsap.to(pRef3.current.position, {
-					// 	z: -0.75,
-					// 	ease: 'Power4.easeIn',
-					// 	duration: 2.75,
-					// })
 
 					animRef.current = true
 				}
 			}
 		}
 
+		let touchStartY
+		const handleTouchStart = (event) => {
+			touchStartY = event.touches[0].clientY
+		}
+
+		const handleTouchEnd = (event) => {
+			const deltaY = touchStartY - event.changedTouches[0].clientY
+
+			if (!animRef.current) {
+				if (deltaY >= 75) {
+					// adjust this value to meet your specific touch sensitivity requirements
+					// Same gsap code here...
+					animRef.current = true
+				}
+			}
+		}
+
+		window.addEventListener('touchstart', handleTouchStart)
+		window.addEventListener('touchend', handleTouchEnd)
 		window.addEventListener('wheel', handleWheel, { passive: false })
 		return () => {
 			window.removeEventListener('wheel', handleWheel)
+			window.removeEventListener('touchstart', handleTouchStart)
+			window.removeEventListener('touchend', handleTouchEnd)
 		}
 	}, [])
 	return (
