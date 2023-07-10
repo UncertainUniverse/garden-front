@@ -14,12 +14,12 @@ const Page1 = forwardRef((props, ref) => {
 		p1: {
 			minRadius: !isMobile ? 1.0 : 0.5,
 			maxRadius: !isMobile ? 1.5 : 0.75,
-			particleCount: !isMobile ? 10000 : 5000,
+			particleCount: !isMobile ? 10000 : 2000,
 		},
 		p2: {
 			minRadius: !isMobile ? 0.85 : 0.425,
 			maxRadius: !isMobile ? 1.35 : 0.675,
-			particleCount: !isMobile ? 10000 : 5000,
+			particleCount: !isMobile ? 10000 : 2000,
 		},
 	}
 
