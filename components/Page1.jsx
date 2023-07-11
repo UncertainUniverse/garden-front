@@ -156,7 +156,6 @@ const Page1 = forwardRef((props, ref) => {
 						duration: 1.5,
 						delay: 2,
 					})
-					console.log(mainTitle.current.children[0])
 
 					gsap.to(pRef.current.position, {
 						z: -13,

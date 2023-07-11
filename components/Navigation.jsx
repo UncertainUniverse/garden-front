@@ -1,6 +1,5 @@
 import React, { useMemo, useState, useRef } from 'react'
 import ClickablePage from './ClickablePage'
-import { Caustics, Decal, MeshTransmissionMaterial } from '@react-three/drei'
 import Title from './Title'
 import { Circle } from '@react-three/drei'
 import { gsap } from 'gsap'
@@ -9,9 +8,14 @@ const Navigation = (props) => {
 	const dummyAvailableNodes = 8
 	const numElements = props.navData.length
 	const text = useRef()
+	const PARAMS = {
+		title: {
+			scale: props.isMobile ? [0.075, 0.075, 0.075] : [0.15, 0.15, 0.15],
+		},
+		middle: { size: props.isMobile ? [0.175, 64] : [0.35, 64] },
+	}
 	const [glassExit, setGlassExit] = useState(false)
 	const navLink = Object.keys(props.navData)
-	// const navTitle = props.navData[`${navLink[0]}`]
 	const [order, setOrder] = useState(
 		Array.from({ length: numElements }, (_, i) => i)
 	)
@@ -77,12 +81,12 @@ const Navigation = (props) => {
 				<Title
 					ref={text}
 					text={props.mainText}
-					scale={[0.15, 0.15, 0.15]}
+					scale={PARAMS.title.scale}
 					position={[0, 0, 1]}
 					opacity={1}
 				/>
 			)}
-			<Circle args={[0.35, 64]} material-color={'#FE6900'} />
+			<Circle args={PARAMS.middle.size} material-color={'#FE6900'} />
 			{order.map((originalIndex, i) => {
 				const position = positions[originalIndex]
 				return (
