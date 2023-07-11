@@ -79,6 +79,7 @@ const Navigation = (props) => {
 					text={props.mainText}
 					scale={[0.15, 0.15, 0.15]}
 					position={[0, 0, 1]}
+					opacity={1}
 				/>
 			)}
 			<Circle args={[0.35, 64]} material-color={'#FE6900'} />

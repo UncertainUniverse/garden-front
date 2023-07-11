@@ -1,6 +1,5 @@
 import { Vector3 } from 'three'
 import PointCloud from './PointCloud'
-import DebugSphere from './DebugSphere'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 import IntroBtn from './IntroBtn'
 import { gsap } from 'gsap'
@@ -33,10 +32,78 @@ const Page1 = forwardRef((props, ref) => {
 	const pRef = useRef()
 	const pRef2 = useRef()
 	const router = useRouter()
+	const enterRef = useRef()
+	const introBtnRef = useRef()
+	enterRef.current = true
 	const { scene } = useThree()
 	animRef.current = false
 	function cleanUp() {
 		scene.remove(pointClouds.current)
+	}
+	// console.log(introBtnRef.current.children[1])
+
+	function handleEnterState() {
+		if (enterRef.current) {
+			gsap.to(meteorEarth.current.scale, {
+				x: 5.5,
+				y: 5.5,
+				z: 5.5,
+				ease: 'Power4.easeIn',
+				duration: 1.75,
+				delay: 2.0,
+				onComplete: () => router.push('/IntroNav'),
+			})
+			gsap.to(mainTitle.current.children[0].scale, {
+				x: 0.15,
+				y: 0.15,
+				z: 0.15,
+				ease: 'Power3.easeIn',
+				duration: 2.5,
+			})
+			gsap.to(mainTitle.current.children[1].scale, {
+				x: 0.15,
+				y: 0.15,
+				z: 0.15,
+				ease: 'Power3.easeIn',
+				duration: 2.5,
+			})
+			gsap.to(mainTitle.current.children[0].position, {
+				y: 0.05,
+				ease: 'Power3.easeIn',
+				duration: 2.5,
+			})
+			gsap.to(mainTitle.current.children[1].position, {
+				y: -0.1,
+				ease: 'Power3.easeIn',
+				duration: 2.5,
+			})
+			gsap.to(mainTitle.current.children[0], {
+				fillOpacity: 0,
+				ease: 'Power3.easeIn',
+				duration: 1.5,
+				delay: 2,
+			})
+			gsap.to(mainTitle.current.children[1], {
+				fillOpacity: 0,
+				ease: 'Power3.easeIn',
+				duration: 1.5,
+				delay: 2,
+			})
+			gsap.to(pRef.current.position, {
+				z: -13,
+				ease: 'Power4.easeIn',
+				duration: 3,
+			})
+			gsap.to(pRef2.current.position, {
+				z: -13,
+				ease: 'Power4.easeIn',
+				duration: 3,
+				onComplete: () => cleanUp(pRef2),
+			})
+			gsap.to(introBtnRef.current.children[0].material, { opacity: 0 })
+			gsap.to(introBtnRef.current.children[1], { fillOpacity: 0 })
+			enterRef.current = false
+		}
 	}
 
 	useEffect(() => {
@@ -45,9 +112,9 @@ const Page1 = forwardRef((props, ref) => {
 			if (!animRef.current) {
 				if (event.deltaY >= 25) {
 					gsap.to(meteorEarth.current.scale, {
-						x: 3.5,
-						y: 3.5,
-						z: 3.5,
+						x: 5.5,
+						y: 5.5,
+						z: 5.5,
 						ease: 'Power4.easeIn',
 						duration: 1.75,
 						delay: 2.0,
@@ -77,6 +144,20 @@ const Page1 = forwardRef((props, ref) => {
 						ease: 'Power3.easeIn',
 						duration: 2.5,
 					})
+					gsap.to(mainTitle.current.children[0], {
+						fillOpacity: 0,
+						ease: 'Power3.easeIn',
+						duration: 1.5,
+						delay: 2,
+					})
+					gsap.to(mainTitle.current.children[1], {
+						fillOpacity: 0,
+						ease: 'Power3.easeIn',
+						duration: 1.5,
+						delay: 2,
+					})
+					console.log(mainTitle.current.children[0])
+
 					gsap.to(pRef.current.position, {
 						z: -13,
 						ease: 'Power4.easeIn',
@@ -112,8 +193,14 @@ const Page1 = forwardRef((props, ref) => {
 			</mesh>
 
 			<Meteor ref={meteorEarth} />
-			<MainTitle ref={mainTitle} />
-			<IntroBtn position={[0, -0.75, 0]} />
+			<MainTitle ref={mainTitle} opacity={1} />
+			{isMobile ?? (
+				<IntroBtn
+					position={[0, -0.75, 0]}
+					enterState={handleEnterState}
+					ref={introBtnRef}
+				/>
+			)}
 			<group ref={pointClouds}>
 				<PointCloud
 					ref={pRef}

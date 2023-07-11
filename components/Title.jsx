@@ -9,6 +9,9 @@ const Title = forwardRef((props, ref) => {
 			rotation={props.rotation}
 			scale={props.scale}
 			color={props.col}
+			strokeOpacity={0}
+			fillOpacity={props.opacity}
+			outlineOpacity={0}
 		>
 			{props.text}
 		</Text>
