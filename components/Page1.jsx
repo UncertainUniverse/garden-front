@@ -2,6 +2,7 @@ import { Vector3 } from 'three'
 import PointCloud from './PointCloud'
 import DebugSphere from './DebugSphere'
 import { forwardRef, useEffect, useRef, useState } from 'react'
+import IntroBtn from './IntroBtn'
 import { gsap } from 'gsap'
 import { isMobile } from 'react-device-detect'
 import { useThree } from '@react-three/fiber'
@@ -93,74 +94,9 @@ const Page1 = forwardRef((props, ref) => {
 			}
 		}
 
-		// let touchStartY
-		// const handleTouchStart = (event) => {
-		// 	touchStartY = event.touches[0].clientY
-		// }
-
-		// const handleTouchEnd = (event) => {
-		// 	const deltaY = touchStartY - event.changedTouches[0].clientY
-		// 	console.log(deltaY)
-		// 	if (!animRef.current) {
-		// 		if (deltaY >= 75) {
-		// 			console.log('running touch bro')
-		// 			// adjust this value to meet your specific touch sensitivity requirements
-		// 			gsap.to(meteorEarth.current.scale, {
-		// 				x: 3.5,
-		// 				y: 3.5,
-		// 				z: 3.5,
-		// 				ease: 'Power4.easeIn',
-		// 				duration: 1.75,
-		// 				delay: 2.0,
-		// 				onComplete: () => router.push('/IntroNav'),
-		// 			})
-		// 			gsap.to(mainTitle.current.children[0].scale, {
-		// 				x: 0.15,
-		// 				y: 0.15,
-		// 				z: 0.15,
-		// 				ease: 'Power3.easeIn',
-		// 				duration: 2.5,
-		// 			})
-		// 			gsap.to(mainTitle.current.children[1].scale, {
-		// 				x: 0.15,
-		// 				y: 0.15,
-		// 				z: 0.15,
-		// 				ease: 'Power3.easeIn',
-		// 				duration: 2.5,
-		// 			})
-		// 			gsap.to(mainTitle.current.children[0].position, {
-		// 				y: 0.05,
-		// 				ease: 'Power3.easeIn',
-		// 				duration: 2.5,
-		// 			})
-		// 			gsap.to(mainTitle.current.children[1].position, {
-		// 				y: -0.1,
-		// 				ease: 'Power3.easeIn',
-		// 				duration: 2.5,
-		// 			})
-		// 			gsap.to(pRef.current.position, {
-		// 				z: -13,
-		// 				ease: 'Power4.easeIn',
-		// 				duration: 3,
-		// 			})
-		// 			gsap.to(pRef2.current.position, {
-		// 				z: -13,
-		// 				ease: 'Power4.easeIn',
-		// 				duration: 3,
-		// 				onComplete: () => cleanUp(pRef2),
-		// 			})
-		// 			animRef.current = true
-		// 		}
-		// 	}
-		// }
-
-		// window.addEventListener('touchstart', handleTouchStart)
-		// window.addEventListener('touchend', handleTouchEnd)
 		window.addEventListener('wheel', handleWheel, { passive: false })
 		return () => {
 			window.removeEventListener('wheel', handleWheel)
-			// window.removeEventListener('touchstart', handleTouchStart)
-			// window.removeEventListener('touchend', handleTouchEnd)
 		}
 	}, [])
 	return (
@@ -177,7 +113,7 @@ const Page1 = forwardRef((props, ref) => {
 
 			<Meteor ref={meteorEarth} />
 			<MainTitle ref={mainTitle} />
-
+			<IntroBtn position={[0, -0.75, 0]} />
 			<group ref={pointClouds}>
 				<PointCloud
 					ref={pRef}

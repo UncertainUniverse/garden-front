@@ -2,7 +2,7 @@ import Page1 from '@/components/Page1'
 import Layout from '@/components/Layout'
 import { motion } from 'framer-motion'
 import DeviceDetector from '@/components/DeviceDetector'
-
+// import IntroButton from '@/components/IntroButton'
 const pageTransition = {
 	out: {
 		opacity: 0,
@@ -30,6 +30,7 @@ export default function Home() {
 			exit='out'
 		>
 			<DeviceDetector />
+			{/* <IntroButton /> */}
 			<Layout>
 				<Page1 />
 			</Layout>

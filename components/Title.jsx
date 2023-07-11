@@ -8,6 +8,7 @@ const Title = forwardRef((props, ref) => {
 			position={props.position}
 			rotation={props.rotation}
 			scale={props.scale}
+			color={props.col}
 		>
 			{props.text}
 		</Text>
