@@ -14,8 +14,8 @@ const arrayNav = [
 const Page2 = (props) => {
 	const PARAMS = {
 		pc: {
-			minRadius: isMobile ? 0.85 : 1.75,
-			maxRadius: isMobile ? 0.85 : 1.75,
+			minRadius: isMobile ? 1 : 1.75,
+			maxRadius: isMobile ? 1 : 1.75,
 			count: isMobile ? 2000 : 10000,
 		},
 	}
