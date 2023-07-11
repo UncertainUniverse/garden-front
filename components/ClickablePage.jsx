@@ -23,8 +23,8 @@ const ClickablePage = ({
 	isMobile,
 }) => {
 	const PARAMS = {
-		html: { fontSize: isMobile ? '8px' : '16px' },
-		mesh: { size: isMobile ? [0.05, 32, 64] : [0.1, 32, 64] },
+		html: { fontSize: isMobile ? '12px' : '16px' },
+		mesh: { size: isMobile ? [0.075, 32, 64] : [0.1, 32, 64] },
 	}
 	const colorMap = useLoader(TextureLoader, 'assets/textures/mcblu2.png')
 	const m = useRef()
