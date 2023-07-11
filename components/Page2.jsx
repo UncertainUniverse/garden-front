@@ -14,9 +14,9 @@ const arrayNav = [
 const Page2 = (props) => {
 	const PARAMS = {
 		pc: {
-			minRadius: !isMobile ? 0.85 : 1.75,
-			maxRadius: !isMobile ? 0.85 : 1.75,
-			count: !isMobile ? 2000 : 10000,
+			minRadius: isMobile ? 0.85 : 1.75,
+			maxRadius: isMobile ? 0.85 : 1.75,
+			count: isMobile ? 2000 : 10000,
 		},
 	}
 	return (
@@ -41,7 +41,7 @@ const Page2 = (props) => {
 				navData={arrayNav}
 				mainText={props.mainText}
 				nodeCount={5}
-				isMobile={!isMobile}
+				isMobile={isMobile}
 			/>
 		</>
 	)
