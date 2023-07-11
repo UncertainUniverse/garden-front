@@ -194,7 +194,7 @@ const Page1 = forwardRef((props, ref) => {
 
 			<Meteor ref={meteorEarth} />
 			<MainTitle ref={mainTitle} opacity={1} />
-			{isMobile ?? (
+			{isMobile && (
 				<IntroBtn
 					position={[0, -0.75, 0]}
 					enterState={handleEnterState}
