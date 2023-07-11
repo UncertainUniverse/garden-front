@@ -37,7 +37,7 @@ const Page2 = (props) => {
 			/>
 			{/* <Title text={'0'} scale={[0.1, 0.1, 0.1]} /> */}
 			<Navigation
-				radius={1.75}
+				radius={PARAMS.pc.minRadius}
 				navData={arrayNav}
 				mainText={props.mainText}
 				nodeCount={5}
