@@ -93,6 +93,7 @@ const Navigation = (props) => {
 					<ClickablePage
 						key={originalIndex} // Use originalIndex as key to preserve component identity.
 						navData={props.navData[i]}
+						isMobile={props.isMobile}
 						indexPos={i}
 						numNodes={order.length}
 						position={position}

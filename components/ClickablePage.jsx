@@ -20,7 +20,12 @@ const ClickablePage = ({
 	availableNodes,
 	numNodes,
 	navData,
+	isMobile,
 }) => {
+	const PARAMS = {
+		html: { fontSize: isMobile ? '8px' : '16px' },
+		mesh: { size: isMobile ? [0.05, 32, 64] : [0.1, 32, 64] },
+	}
 	const colorMap = useLoader(TextureLoader, 'assets/textures/mcblu2.png')
 	const m = useRef()
 	const test = useRef()
@@ -111,6 +116,7 @@ const ClickablePage = ({
 							width: '200px',
 							textAlign: 'center',
 							backgroundColor: 'transparent',
+							fontSize: PARAMS.html.fontSize,
 						}}
 						center
 						// position={[0, 0, 0.9]}
@@ -119,7 +125,7 @@ const ClickablePage = ({
 							{navTitle}
 						</div>
 					</Html>
-					<sphereGeometry args={[0.1, 32, 64]} />
+					<sphereGeometry args={PARAMS.mesh.size} />
 					<meshBasicMaterial
 						color='#1C7FFF'
 						transparent
