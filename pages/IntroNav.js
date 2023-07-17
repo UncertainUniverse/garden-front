@@ -21,6 +21,13 @@ const pageTransition = {
 }
 
 export default function IntroNav() {
+	const arrayNav = [
+		'Evolution',
+		'First Principles',
+		'Metaphysics',
+		'Society',
+		'Spacetime',
+	]
 	return (
 		<motion.div
 			variants={pageTransition}
@@ -29,7 +36,7 @@ export default function IntroNav() {
 			exit='out'
 		>
 			<Layout>
-				<Page2 mainText={`Uncertain \n  Universe`} />
+				<Page2 mainText={`Uncertain \n  Universe`} pages={arrayNav} />
 			</Layout>
 		</motion.div>
 	)

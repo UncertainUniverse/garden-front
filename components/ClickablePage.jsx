@@ -11,6 +11,20 @@ import { Circle } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useThree } from '@react-three/fiber'
 
+function cleanUpData(data) {
+	const navTitle = data
+	const splitData = navTitle.split('-')
+	console.log(splitData)
+	const upperData = splitData.map((word) => {
+		return word[0].toUpperCase() + word.substr(1)
+	})
+	console.log(upperData)
+	const cleanData = upperData.join(' ')
+	console.log(cleanData)
+	const pageUrl = cleanData.replaceAll(' ', '')
+	console.log(pageUrl)
+	return [cleanData, pageUrl]
+}
 const ClickablePage = ({
 	position,
 	onClick,
@@ -64,7 +78,7 @@ const ClickablePage = ({
 				ease: 'Power4.easeIn',
 				duration: 1.75,
 				delay: numNodes / 2,
-				onComplete: () => router.push(`/${navLink}`),
+				onComplete: () => router.push(`/nav?data=${navTitle[1]}`),
 			})
 			// gsap.to(transit.current.scale, {
 			// 	x: 3.5,
@@ -97,9 +111,9 @@ const ClickablePage = ({
 			// })
 		}
 	}, [clicked, exited])
+	const navTitle = cleanUpData(navData)
 
-	const navLink = Object.keys(navData)
-	const navTitle = navData[`${navLink[0]}`]
+	console.log(navTitle[1])
 	return (
 		<>
 			<group ref={groupRef} opacity={0}>
@@ -122,7 +136,7 @@ const ClickablePage = ({
 						// position={[0, 0, 0.9]}
 					>
 						<div ref={test} className='pageNames'>
-							{navTitle}
+							{navTitle[0]}
 						</div>
 					</Html>
 					<sphereGeometry args={PARAMS.mesh.size} />

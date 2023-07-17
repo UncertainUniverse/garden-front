@@ -14,6 +14,7 @@ const Navigation = (props) => {
 		},
 		middle: { size: props.isMobile ? [0.175, 64] : [0.35, 64] },
 	}
+	console.log(props.navData)
 	const [glassExit, setGlassExit] = useState(false)
 	const navLink = Object.keys(props.navData)
 	const [order, setOrder] = useState(
@@ -42,9 +43,7 @@ const Navigation = (props) => {
 
 	const handleChildClick = (index) => {
 		if (text.current) {
-			const c = Object.keys(props.navData[index])
-			const cTitle = props.navData[index][c[0]]
-			text.current.text = cTitle
+			text.current.text = props.navData[index]
 		}
 		setGlassExit(true)
 		setClickedStates((prevClickedStates) =>
