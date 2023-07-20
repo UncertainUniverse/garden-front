@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Page2 from '@/components/Page2'
+import Page3 from '@/components/Page3'
 import Layout from '@/components/Layout'
 
 const pageTransition = {
@@ -36,7 +36,7 @@ export default function IntroNav() {
 			exit='out'
 		>
 			<Layout>
-				<Page2 mainText={`Uncertain \n  Universe`} pages={arrayNav} />
+				<Page3 mainText={`Uncertain \n  Universe`} pages={arrayNav} />
 			</Layout>
 		</motion.div>
 	)

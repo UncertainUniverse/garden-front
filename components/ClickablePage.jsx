@@ -14,15 +14,11 @@ import { useThree } from '@react-three/fiber'
 function cleanUpData(data) {
 	const navTitle = data
 	const splitData = navTitle.split('-')
-	console.log(splitData)
 	const upperData = splitData.map((word) => {
 		return word[0].toUpperCase() + word.substr(1)
 	})
-	console.log(upperData)
 	const cleanData = upperData.join(' ')
-	console.log(cleanData)
 	const pageUrl = cleanData.replaceAll(' ', '')
-	console.log(pageUrl)
 	return [cleanData, pageUrl]
 }
 const ClickablePage = ({
@@ -35,17 +31,16 @@ const ClickablePage = ({
 	numNodes,
 	navData,
 	isMobile,
+	dbURL,
+	setDB,
 }) => {
 	const PARAMS = {
 		html: { fontSize: isMobile ? '12px' : '16px' },
 		mesh: { size: isMobile ? [0.075, 32, 64] : [0.1, 32, 64] },
 	}
-	const colorMap = useLoader(TextureLoader, 'assets/textures/mcblu2.png')
 	const m = useRef()
 	const test = useRef()
 	const groupRef = useRef()
-	const middle = useRef()
-	const transit = useRef()
 	const router = useRouter()
 	const { camera } = useThree()
 	const [hovered, setHovered] = useState(false)
@@ -58,6 +53,15 @@ const ClickablePage = ({
 		if (!exited) {
 			setHovered(false)
 		}
+	}
+
+	const pageTransition = () => {
+		console.log(setDB)
+		if (setDB) {
+			setDB(navTitle[1])
+			console.log(dbURL)
+		}
+		router.push(`/nav?data=${navTitle[1]}`)
 	}
 
 	useEffect(() => {
@@ -78,17 +82,9 @@ const ClickablePage = ({
 				ease: 'Power4.easeIn',
 				duration: 1.75,
 				delay: numNodes / 2,
-				onComplete: () => router.push(`/nav?data=${navTitle[1]}`),
+				// onComplete: () => router.push(`/nav?data=${navTitle[1]}`),
+				onComplete: pageTransition,
 			})
-			// gsap.to(transit.current.scale, {
-			// 	x: 3.5,
-			// 	y: 3.5,
-			// 	z: 3.5,
-			// 	ease: 'Power4.easeIn',
-			// 	duration: 1.75,
-			// 	delay: 2,
-			// 	onComplete: () => router.push(`/${navLink}`),
-			// })
 		}
 		if (exited) {
 			gsap.to(m.current.material, {
@@ -113,7 +109,6 @@ const ClickablePage = ({
 	}, [clicked, exited])
 	const navTitle = cleanUpData(navData)
 
-	console.log(navTitle[1])
 	return (
 		<>
 			<group ref={groupRef} opacity={0}>
@@ -133,7 +128,6 @@ const ClickablePage = ({
 							fontSize: PARAMS.html.fontSize,
 						}}
 						center
-						// position={[0, 0, 0.9]}
 					>
 						<div ref={test} className='pageNames'>
 							{navTitle[0]}
@@ -145,11 +139,8 @@ const ClickablePage = ({
 						transparent
 						opacity={1}
 					/>
-					{/* <meshMatcapMaterial matcap={colorMap} transparent /> */}
 				</mesh>
 			</group>
-			{/* <Meteor ref={transit} /> */}
-			{/* <Meteor2 ref={middle} /> */}
 			<SurroundingNodes
 				hoverState={hovered}
 				position={[position[0], position[1], -0.75]}

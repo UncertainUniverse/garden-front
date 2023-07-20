@@ -2,10 +2,10 @@ import React, { useMemo, useState, useRef } from 'react'
 import ClickablePage from './ClickablePage'
 import Title from './Title'
 import { Circle } from '@react-three/drei'
-import { gsap } from 'gsap'
 const Navigation = (props) => {
 	const radius = props.radius
 	const dummyAvailableNodes = 8
+
 	const numElements = props.navData.length
 	const text = useRef()
 	const PARAMS = {
@@ -14,7 +14,6 @@ const Navigation = (props) => {
 		},
 		middle: { size: props.isMobile ? [0.175, 64] : [0.35, 64] },
 	}
-	console.log(props.navData)
 	const [glassExit, setGlassExit] = useState(false)
 	const navLink = Object.keys(props.navData)
 	const [order, setOrder] = useState(
@@ -100,6 +99,8 @@ const Navigation = (props) => {
 						onClick={() => handleChildClick(i)}
 						clicked={clickedStates[originalIndex]}
 						exited={exitState[originalIndex]}
+						dbURL={props.dbURL}
+						setDB={props.setdbURL}
 					/>
 				)
 			})}
