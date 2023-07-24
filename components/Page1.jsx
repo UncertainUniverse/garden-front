@@ -8,6 +8,7 @@ import { useThree } from '@react-three/fiber'
 import MainTitle from './MainTItle'
 import Meteor from './Meteor'
 import { useRouter } from 'next/router'
+import Subtitle from './Subtitle'
 
 const Page1 = forwardRef((props, ref) => {
 	const PARAMS = {
@@ -28,14 +29,16 @@ const Page1 = forwardRef((props, ref) => {
 	const animRef = useRef()
 	const meteorEarth = useRef()
 	const pointClouds = useRef()
+
 	const mainTitle = useRef()
+	const subRef = useRef()
 	const pRef = useRef()
 	const pRef2 = useRef()
 	const router = useRouter()
 	const enterRef = useRef()
 	const introBtnRef = useRef()
 	enterRef.current = true
-	const { scene } = useThree()
+	const { scene, camera } = useThree()
 	animRef.current = false
 	function cleanUp() {
 		scene.remove(pointClouds.current)
@@ -44,13 +47,19 @@ const Page1 = forwardRef((props, ref) => {
 
 	function handleEnterState() {
 		if (enterRef.current) {
-			gsap.to(meteorEarth.current.scale, {
-				x: 5.5,
-				y: 5.5,
-				z: 5.5,
+			// gsap.to(meteorEarth.current.scale, {
+			// 	x: 0,
+			// 	y: 0,
+			// 	z: 0,
+			// 	ease: 'Power4.easeIn',
+			// 	duration: 1.75,
+			// 	delay: 2.0,
+			// 	onComplete: () => router.push('/IntroNav'),
+			// })
+			gsap.to(camera.position, {
+				z: 500,
 				ease: 'Power4.easeIn',
 				duration: 1.75,
-				delay: 2.0,
 				onComplete: () => router.push('/IntroNav'),
 			})
 			gsap.to(mainTitle.current.children[0].scale, {
@@ -111,13 +120,23 @@ const Page1 = forwardRef((props, ref) => {
 			event.preventDefault()
 			if (!animRef.current) {
 				if (event.deltaY >= 25) {
-					gsap.to(meteorEarth.current.scale, {
-						x: 5.5,
-						y: 5.5,
-						z: 5.5,
+					gsap.to(pRef.current.material.uniforms.uOpacity, {
+						value: 0,
+						duration: 2,
+					})
+					gsap.to(subRef.current, {
+						fillOpacity: 0,
+						duration: 2,
+					})
+					gsap.to(pRef2.current.material.uniforms.uOpacity, {
+						value: 0,
+						duration: 2,
+					})
+					gsap.to(camera.position, {
+						z: 40,
 						ease: 'Power4.easeIn',
 						duration: 1.75,
-						delay: 2.0,
+						delay: 0.75,
 						onComplete: () => router.push('/IntroNav'),
 					})
 					gsap.to(mainTitle.current.children[0].scale, {
@@ -147,14 +166,12 @@ const Page1 = forwardRef((props, ref) => {
 					gsap.to(mainTitle.current.children[0], {
 						fillOpacity: 0,
 						ease: 'Power3.easeIn',
-						duration: 1.5,
-						delay: 2,
+						duration: 2.0,
 					})
 					gsap.to(mainTitle.current.children[1], {
 						fillOpacity: 0,
 						ease: 'Power3.easeIn',
-						duration: 1.5,
-						delay: 2,
+						duration: 2.0,
 					})
 
 					gsap.to(pRef.current.position, {
@@ -200,6 +217,7 @@ const Page1 = forwardRef((props, ref) => {
 					ref={introBtnRef}
 				/>
 			)}
+			<Subtitle ref={subRef} opacity={1} />
 			<group ref={pointClouds}>
 				<PointCloud
 					ref={pRef}
@@ -213,7 +231,7 @@ const Page1 = forwardRef((props, ref) => {
 					spread={1.0}
 					size={1.0}
 					count={PARAMS.p2.particleCount}
-					opacity={0.0}
+					opacity={1.0}
 					center={[0, 0, 0]}
 				/>
 				<PointCloud
@@ -227,7 +245,7 @@ const Page1 = forwardRef((props, ref) => {
 					size={0.5}
 					rotation={[Math.PI / 2, 0, 0]}
 					count={PARAMS.p2.particleCount}
-					opacity={0.0}
+					opacity={1.0}
 					center={[0, 0, 0]}
 				/>
 			</group>

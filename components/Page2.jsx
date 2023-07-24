@@ -7,7 +7,6 @@ import { LoadingScreen } from './LoadingScreen'
 import { useRouter } from 'next/router'
 async function getData(_data, query) {
 	if (_data) {
-		// const jsonFile = `${_data}.json`
 		const jsonFile = 'FirstPrinciples.json'
 		const res = await fetch(jsonFile)
 		if (!res.ok) {
@@ -18,7 +17,7 @@ async function getData(_data, query) {
 		if (!filteredData) {
 			throw new Error('No data with matching Title')
 		}
-		// return res.json()
+		console.log(filteredData)
 		return filteredData[0]
 	}
 }
@@ -29,11 +28,11 @@ export default function Page2() {
 	const [data, setData] = useState(null)
 	const [loading, setLoading] = useState(true)
 	const cleanTitle = router.query.data.split(/(?=[A-Z])/).join(' ')
+	;('FirstPrinciples')
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				if (router.query.data) {
-					// Check if props.cleanTitle exists
 					const res = await getData(router.query.data, cleanTitle)
 					setData(res)
 					setLoading(false)
@@ -69,7 +68,7 @@ export default function Page2() {
 						size={0.1}
 						rotation={[Math.PI / 2, 0, 0]}
 						count={PARAMS.pc.count}
-						opacity={0.0}
+						opacity={1.0}
 						center={[0, 0, 0]}
 					/>
 					<Navigation

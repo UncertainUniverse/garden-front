@@ -5,6 +5,7 @@ import { isMobile } from 'react-device-detect'
 import { useState } from 'react'
 import { LoadingScreen } from './LoadingScreen'
 import { useRouter } from 'next/router'
+
 export default function Page3(props) {
 	const PARAMS = {
 		pc: {
@@ -27,7 +28,7 @@ export default function Page3(props) {
 					size={0.1}
 					rotation={[Math.PI / 2, 0, 0]}
 					count={PARAMS.pc.count}
-					opacity={0.0}
+					opacity={1.0}
 					center={[0, 0, 0]}
 				/>
 				<Navigation

@@ -2,20 +2,19 @@ import React, { useMemo, useState, useRef } from 'react'
 import ClickablePage from './ClickablePage'
 import Title from './Title'
 import { Circle } from '@react-three/drei'
+import { gsap } from 'gsap'
 const Navigation = (props) => {
 	const radius = props.radius
 	const dummyAvailableNodes = 8
-
 	const numElements = props.navData.length
 	const text = useRef()
+	const middle = useRef()
 	const PARAMS = {
 		title: {
 			scale: props.isMobile ? [0.075, 0.075, 0.075] : [0.15, 0.15, 0.15],
 		},
 		middle: { size: props.isMobile ? [0.175, 64] : [0.35, 64] },
 	}
-	const [glassExit, setGlassExit] = useState(false)
-	const navLink = Object.keys(props.navData)
 	const [order, setOrder] = useState(
 		Array.from({ length: numElements }, (_, i) => i)
 	)
@@ -39,12 +38,20 @@ const Navigation = (props) => {
 
 		return positions
 	}, [radius, numElements])
-
 	const handleChildClick = (index) => {
 		if (text.current) {
 			text.current.text = props.navData[index]
+			gsap.to(text.current, {
+				fillOpacity: 0,
+				duration: 1.75,
+				delay: order.length * 0.75,
+			})
+			gsap.to(middle.current.material, {
+				opacity: 0,
+				duration: 1.75,
+				delay: order.length * 0.75,
+			})
 		}
-		setGlassExit(true)
 		setClickedStates((prevClickedStates) =>
 			prevClickedStates.map((state, i) => (i === index ? !state : state))
 		)
@@ -84,7 +91,14 @@ const Navigation = (props) => {
 					opacity={1}
 				/>
 			)}
-			<Circle args={PARAMS.middle.size} material-color={'#FE6900'} />
+			<Circle
+				ref={middle}
+				args={PARAMS.middle.size}
+				material-color={'#FE6900'}
+				material-opacity={1}
+				material-transparent={true}
+				// opacity={0}
+			/>
 			{order.map((originalIndex, i) => {
 				const position = positions[originalIndex]
 				return (
@@ -100,7 +114,7 @@ const Navigation = (props) => {
 						clicked={clickedStates[originalIndex]}
 						exited={exitState[originalIndex]}
 						dbURL={props.dbURL}
-						setDB={props.setdbURL}
+						setDB={props.setDB}
 					/>
 				)
 			})}

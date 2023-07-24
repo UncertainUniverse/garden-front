@@ -56,10 +56,8 @@ const ClickablePage = ({
 	}
 
 	const pageTransition = () => {
-		console.log(setDB)
 		if (setDB) {
-			setDB(navTitle[1])
-			console.log(dbURL)
+			// setDB(navTitle[1])
 		}
 		router.push(`/nav?data=${navTitle[1]}`)
 	}
@@ -78,11 +76,10 @@ const ClickablePage = ({
 				ease: 'sine.inOut',
 			})
 			gsap.to(camera.position, {
-				z: 500,
+				z: 200,
 				ease: 'Power4.easeIn',
 				duration: 1.75,
 				delay: numNodes / 2,
-				// onComplete: () => router.push(`/nav?data=${navTitle[1]}`),
 				onComplete: pageTransition,
 			})
 		}
@@ -99,12 +96,6 @@ const ClickablePage = ({
 				ease: 'sine.inOut',
 				delay: 1,
 			})
-			// gsap.to(middle.current.material.uniforms.uOpacity, {
-			// 	value: 0,
-			// 	duration: 2.5,
-			// 	ease: 'sine.inOut',
-			// 	delay: 0,
-			// })
 		}
 	}, [clicked, exited])
 	const navTitle = cleanUpData(navData)
