@@ -56,10 +56,23 @@ const Page1 = forwardRef((props, ref) => {
 			// 	delay: 2.0,
 			// 	onComplete: () => router.push('/IntroNav'),
 			// })
+			gsap.to(pRef.current.material.uniforms.uOpacity, {
+				value: 0,
+				duration: 2,
+			})
+			gsap.to(subRef.current, {
+				fillOpacity: 0,
+				duration: 2,
+			})
+			gsap.to(pRef2.current.material.uniforms.uOpacity, {
+				value: 0,
+				duration: 2,
+			})
 			gsap.to(camera.position, {
-				z: 500,
+				z: 40,
 				ease: 'Power4.easeIn',
 				duration: 1.75,
+				delay: 0.75,
 				onComplete: () => router.push('/IntroNav'),
 			})
 			gsap.to(mainTitle.current.children[0].scale, {
@@ -90,13 +103,11 @@ const Page1 = forwardRef((props, ref) => {
 				fillOpacity: 0,
 				ease: 'Power3.easeIn',
 				duration: 1.5,
-				delay: 2,
 			})
 			gsap.to(mainTitle.current.children[1], {
 				fillOpacity: 0,
 				ease: 'Power3.easeIn',
 				duration: 1.5,
-				delay: 2,
 			})
 			gsap.to(pRef.current.position, {
 				z: -13,
