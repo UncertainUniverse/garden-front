@@ -67,7 +67,7 @@ const ClickablePage = ({
 			gsap.to(m.current.position, {
 				x: 0,
 				y: 0,
-				z: 0,
+				z: -0.5,
 				duration: 1.5,
 			})
 			gsap.to(test.current, {

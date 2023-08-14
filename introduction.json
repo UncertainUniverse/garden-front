@@ -1,7 +1,24 @@
 [
   {
-    "_id": "64b5da7617d2a50bbf19cf6b",
+    "_id": "64d5f72477945f33afc3b563",
+    "layout": "quote",
+    "title": "Bruno Latour Quote",
+    "subtitle": null,
+    "file_name": "bruno-latour-quote",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "quote"
+    ],
+    "content": "<blockquote>\n  <p>\"The world is not a solid continent of facts sprinkled by a few lakes of uncertainties, but a vast ocean of uncertainties speckled by a few islands of calibrated and stabilized forms.\"</p>\n</blockquote>\n<p>~ Bruno Latour</p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b564",
     "title": "Index Introduction",
+    "file_name": "1-index introduction",
     "num_child_nodes": 0,
     "tags": [],
     "content": "<h1 id=\"introduction\">Introduction</h1>\n<ul>\n<li><strong>Introduction</strong>: Overview of the book.<ul>\n<li><strong>What</strong>: What this book is about. </li>\n<li><strong>Why</strong>: Why you should read this book.</li>\n<li><strong>Why again</strong>: Why I wrote this book.</li>\n<li><strong>Who</strong>: Who this book is for.</li>\n<li><strong>How</strong>: How to read this book.</li></ul></li>\n</ul>",
@@ -9,10 +26,11 @@
     "marginalia": []
   },
   {
-    "_id": "64b5da7617d2a50bbf19cf6a",
+    "_id": "64d5f72477945f33afc3b565",
     "layout": "page",
     "title": "How?",
     "subtitle": "How to read this book.",
+    "file_name": "how",
     "parent_node": "introduction",
     "num_child_nodes": 0,
     "visibility": true,
@@ -24,25 +42,11 @@
     "marginalia": []
   },
   {
-    "_id": "64b5da7617d2a50bbf19cf6d",
-    "layout": "quote",
-    "title": "Erich Fromm Quote",
-    "subtitle": null,
-    "parent_node": "introduction",
-    "num_child_nodes": 0,
-    "visibility": true,
-    "tags": [
-      "quote"
-    ],
-    "content": "<blockquote>\n  <p>“The quest for certainty blocks the search for meaning. Uncertainty is the very condition to impel man to unfold his powers.”</p>\n</blockquote>\n<p>~ Erich Fromm, Having and Being</p>",
-    "child_nodes": [],
-    "marginalia": []
-  },
-  {
-    "_id": "64b5da7617d2a50bbf19cf6e",
+    "_id": "64d5f72477945f33afc3b566",
     "layout": "branch-head",
     "title": "Introduction",
     "subtitle": "About this book",
+    "file_name": "introduction",
     "parent_node": "uncertain",
     "num_child_nodes": 6,
     "visibility": true,
@@ -55,41 +59,58 @@
       {
         "name": "erich-fromm-quote",
         "num_grandchild_nodes": 0,
-        "_id": "64b5da7617d2a50bbf19cf6f"
+        "_id": "64d5f72477945f33afc3b567"
       },
       {
-        "name": "erich-fromm-quote",
+        "name": "what",
         "num_grandchild_nodes": 0,
-        "_id": "64b5da7617d2a50bbf19cf71"
+        "_id": "64d5f72477945f33afc3b569"
       },
       {
-        "name": "erich-fromm-quote",
+        "name": "why",
         "num_grandchild_nodes": 0,
-        "_id": "64b5da7617d2a50bbf19cf73"
+        "_id": "64d5f72477945f33afc3b56b"
       },
       {
-        "name": "erich-fromm-quote",
+        "name": "why-again",
         "num_grandchild_nodes": 0,
-        "_id": "64b5da7617d2a50bbf19cf75"
+        "_id": "64d5f72477945f33afc3b56d"
       },
       {
-        "name": "erich-fromm-quote",
+        "name": "how",
         "num_grandchild_nodes": 0,
-        "_id": "64b5da7617d2a50bbf19cf77"
+        "_id": "64d5f72477945f33afc3b56f"
       },
       {
-        "name": "erich-fromm-quote",
+        "name": "bruno-latour-quote",
         "num_grandchild_nodes": 0,
-        "_id": "64b5da7617d2a50bbf19cf79"
+        "_id": "64d5f72477945f33afc3b571"
       }
     ],
     "marginalia": []
   },
   {
-    "_id": "64b5da7617d2a50bbf19cf7c",
+    "_id": "64d5f72477945f33afc3b573",
+    "layout": "page",
+    "title": "Who?",
+    "subtitle": "Who this book is for.",
+    "file_name": "who",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "meta"
+    ],
+    "content": "<p>This book is for curious students of life. Those for whom knowledge is not a commodity to be acquired, but an oasis to be cultivated. It is a book for intelligent non-experts. For seekers not finders. Explorers of the edge and voyagers without abode. It is for those who feel homesick for places that never existed. Those with a natural distrust of all things firm, fixed, and frozen. </p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b574",
     "layout": "page",
     "title": "What?",
     "subtitle": "What this book is about.",
+    "file_name": "what",
     "parent_node": "introduction",
     "num_child_nodes": 0,
     "visibility": true,
@@ -101,10 +122,27 @@
     "marginalia": []
   },
   {
-    "_id": "64b5da7617d2a50bbf19cf7e",
+    "_id": "64d5f72477945f33afc3b575",
+    "layout": "quote",
+    "title": "Erich Fromm Quote",
+    "subtitle": null,
+    "file_name": "erich-fromm-quote",
+    "parent_node": "introduction",
+    "num_child_nodes": 0,
+    "visibility": true,
+    "tags": [
+      "quote"
+    ],
+    "content": "<blockquote>\n  <p>“The quest for certainty blocks the search for meaning. Uncertainty is the very condition to impel man to unfold his powers.”</p>\n</blockquote>\n<p>~ Erich Fromm, Having and Being</p>",
+    "child_nodes": [],
+    "marginalia": []
+  },
+  {
+    "_id": "64d5f72477945f33afc3b576",
     "layout": "page",
     "title": "Why?",
     "subtitle": "Why you should read this book.",
+    "file_name": "why",
     "parent_node": "introduction",
     "num_child_nodes": 0,
     "visibility": true,
@@ -116,10 +154,11 @@
     "marginalia": []
   },
   {
-    "_id": "64b5da7617d2a50bbf19cf7b",
+    "_id": "64d5f72477945f33afc3b577",
     "layout": "page",
     "title": "Why... again!",
     "subtitle": "Why I wrote this book.",
+    "file_name": "why-again",
     "parent_node": "introduction",
     "num_child_nodes": 0,
     "visibility": true,
@@ -127,36 +166,6 @@
       "meta"
     ],
     "content": "<p>As a product designer by training, I had originally intended to write a book about a subject close to my heart. <strong><em>Creativity</em></strong>. This is dear to me, because I have spent the last twenty years creating products. I have learned the craft of upholstery in Italy, designed teak furniture on the island of Java, prototyped bunkbeds in India, built wheelchairs in Korea, and developed LED lights in China. I have designed and built retail stores for French luxury brands, helped 3D print concept cars, and ran corporate innovation programs. But this neat list obscures the erratic nature of this path. Much of my creative work has been revised, dismissed, or denied. Clients have openly mocked my inexperience, walked out on me during meetings, and, on one occasion, fired me over dinner. My path has been convoluted and erratic, fit and start, pain as well as gain, more failure than fame. But somewhere along the way, something unexpected happened. I started seeing a connection between creativity and uncertainty. It was nothing but an intuition. An inkling I wanted to explore. The decision to pursue this vague feeling has frequently surprised me and profoundly influenced my life.</p>\n<p>The discovery that puzzled me was the following. I experienced first hand that creative professionals share a curious personality trait I could not find in others. They have an elevated tolerance for ambiguity and openness to new experiences. Whether consciously or unconsciously they have internalized that generating something original is necessarily the exploration of the hitherto unknown. The mapping of unpredictable terrain. In the pursuit of novel solutions they have learned (among many other things) to treat uncertainty as a familiar friend, domesticate it, and actively seek out the unknown. Of course, this phenomenon is known to psychologists at least since the work of Mihaly Csikszentmihalyi. However, I had a hunch that the impact of uncertainty was far more perversive and wide-spread. I started interviewing scientists, corporate strategists, economists, investors, architects, and educators about uncertainty. All responses were very much alike. Everyone acknowledged that uncertainty played a significant role in their life and work, but struggled to define or explain how to deal with it. In my interviews, uncertainty appeared like a dim, murky space that defied attempts to describe it. <strong><em>And thus my obsession was born</em></strong>. I spent the following years interviewing more people and reading every book, article, research paper and blog related to uncertainty I could get my hands on. You could say that I re-arranged my life around the symbol of uncertainty. I scrutinized it like a bug in a jar, formulated frameworks, and explored the areas of academia and business where it plays a defining role. This is the account of this ongoing pursuit. The captain's log of my journey, navigating the seas of uncertainty.</p>",
-    "child_nodes": [],
-    "marginalia": []
-  },
-  {
-    "_id": "64b5da7617d2a50bbf19cf6c",
-    "layout": "quote",
-    "title": "Bruno Latour Quote",
-    "subtitle": null,
-    "parent_node": "introduction",
-    "num_child_nodes": 0,
-    "visibility": true,
-    "tags": [
-      "quote"
-    ],
-    "content": "<blockquote>\n  <p>\"The world is not a solid continent of facts sprinkled by a few lakes of uncertainties, but a vast ocean of uncertainties speckled by a few islands of calibrated and stabilized forms.\"</p>\n</blockquote>\n<p>~ Bruno Latour</p>",
-    "child_nodes": [],
-    "marginalia": []
-  },
-  {
-    "_id": "64b5da7617d2a50bbf19cf7d",
-    "layout": "page",
-    "title": "Who?",
-    "subtitle": "Who this book is for.",
-    "parent_node": "introduction",
-    "num_child_nodes": 0,
-    "visibility": true,
-    "tags": [
-      "meta"
-    ],
-    "content": "<p>This book is for curious students of life. Those for whom knowledge is not a commodity to be acquired, but an oasis to be cultivated. It is a book for intelligent non-experts. For seekers not finders. Explorers of the edge and voyagers without abode. It is for those who feel homesick for places that never existed. Those with a natural distrust of all things firm, fixed, and frozen. </p>",
     "child_nodes": [],
     "marginalia": []
   }
