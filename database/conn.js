@@ -42,6 +42,7 @@ async function main() {
 		await client.connect()
 		await Promise.all(
 			collections.map((col) => {
+				console.log(col)
 				return retrievePosts(client, col)
 			})
 		)
