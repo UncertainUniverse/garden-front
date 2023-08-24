@@ -22,6 +22,12 @@ export async function getAllPostIds() {
 			const postsFromCollection = await collection.find({}).toArray()
 			allPosts = [...allPosts, ...postsFromCollection]
 		}
+		// collections.forEach((c) => {
+		// 	const collection = db.collection(c)
+		// 	allPosts = [...collection.find({}).toArray]
+		// })
+		// const collection = db.collection('first-principles')
+		// allPosts = await collection.find({}).toArray()
 	} catch (e) {
 		console.error(e)
 	} finally {

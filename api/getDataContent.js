@@ -1,5 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb')
-
+const collections = ['first-principles', 'introduction']
 const db_uri =
 	'mongodb+srv://admin:srPiJzF8MVXkkqpL@sample-db.tkcfqem.mongodb.net/?retryWrites=true&w=majority'
 
@@ -15,8 +15,15 @@ export async function getDataContent(chapter) {
 	try {
 		await client.connect()
 		const db = client.db('uncertain-universe')
-		const collection = db.collection('first-principles')
-		posts = await collection.find({ file_name: chapter }).toArray()
+		for (const c of collections) {
+			const collection = db.collection(c)
+			const postsFromCollection = await collection
+				.find({ file_name: chapter })
+				.toArray()
+			posts = [...posts, ...postsFromCollection]
+		}
+		// const collection = db.collection('first-principles')
+		// posts = await collection.find({ file_name: chapter }).toArray()
 	} catch (e) {
 		console.error(e)
 	} finally {
