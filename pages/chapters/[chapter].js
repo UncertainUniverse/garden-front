@@ -12,6 +12,9 @@ export default function Chapter({ post }) {
 
 export async function getStaticProps({ params }) {
 	const postData = await getDataContent(params.chapter)
+	if (!postData || postData.length === 0) {
+		return { notFound: true }
+	}
 	const post = postData[0]
 	if (post._id) {
 		post._id = post._id.toString()
